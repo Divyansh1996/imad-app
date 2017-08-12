@@ -78,7 +78,7 @@ app.get('/:articleName',function(req,res)
     var articleName=req.params.articleName;
     res.send(createtemplate(articles[articleName]));
 });
-app.get('/counter',function(req,res)
+app.get('/coun',function(req,res)
 {
     res.send('HII THERE');
 });
