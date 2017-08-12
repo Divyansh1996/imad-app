@@ -20,8 +20,7 @@ app.get('/article-one',function(req,res)
 {
     
     res.send(path.join(__dirname,'ui','article-one.html'));
-}
-);
+});
 
 
 // Do not change port, otherwise your app won't run on IMAD servers
