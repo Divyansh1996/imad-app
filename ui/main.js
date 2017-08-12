@@ -43,7 +43,7 @@ b2.onclick=function()
                 var list1=document.getElementById('namelist');
                 var response=er.responseText;
                 var response1=JSON.parse(response);
-                list1.innerHTML='<li>'+response1+'</li>';
+                list1.innerHTML+='<li>'+response1+'</li>';
                                  
             }
             
