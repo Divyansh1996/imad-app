@@ -31,13 +31,34 @@ v1.onclick=function()
 };
 b2.onclick=function()
 {
-    var names=['name1','name2','name3'];
+    var name=document.getElementById("i1");
+    var name1=name.value;
+    var er=new XMLHttpRequest();
+    er.onreadystatechange=function()
+    {
+        if(er.readyState==XMLHttpRequest.DONE)
+        {
+            if(er.status==200)
+            {
+                var list1=document.getElementById('namelist');
+                var response=er.responseText;
+                var response1=JSON.parse(response);
+                list1.innerHTML(list1);
+                                 
+            }
+            
+        }
+    };
+    er.open('GET','http://divyanshagrawal96.imad.hasura-app.io/counter?name='+name1,true);
+    er.send(null);
+    
+    /*var names=['name1','name2','name3'];
     var list="";
     for(var i=0;i<names.length;i++)
     {
         list+='<li>'+names[i]+'</li>';
     }
     var ul=document.getElementById('namelist');
-    namelist.innerHTML=list;
+    namelist.innerHTML=list;*/
     
 };
