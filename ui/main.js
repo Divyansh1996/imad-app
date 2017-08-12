@@ -49,7 +49,7 @@ b2.onclick=function()
             
         }
     };
-    er.open('GET','http://divyanshagrawal96.imad.hasura-app.io/counter?name='+name1,true);
+    er.open('GET','http://divyanshagrawal96.imad.hasura-app.io/submit?name='+name1,true);
     er.send(null);
     
     /*var names=['name1','name2','name3'];
