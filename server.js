@@ -71,7 +71,7 @@ app.get('/submit',function(req,res)
 {
  var name=req.query.name;
 
- res.send(JSON.stringify(names));
+ res.send(JSON.stringify(name));
 });
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
