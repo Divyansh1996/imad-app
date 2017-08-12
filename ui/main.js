@@ -25,7 +25,7 @@ v1.onclick=function()
           }
       }
     };
-    re.open('GET','http://divyanshagrawal96.imad.hasura-app.io/counter',true)
+    re.open('GET','http://divyanshagrawal96.imad.hasura-app.io/counter',true);
     re.send(null);
     
 };
