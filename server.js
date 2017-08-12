@@ -27,6 +27,7 @@ var htmltemplate=
 </html>`;
 return htmltemplate;
 }
+
 var articles={
     'article-one':{
     title:'Article Kanha1',
