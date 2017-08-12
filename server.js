@@ -67,11 +67,11 @@ app.get('/ui/style.css', function (req, res) {
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
-app.get('/:articleNames',function(req,res)
+app.get('/:articleName',function(req,res)
 {
     
-    var articleNames=req.params.articleNames;
-    res.send(createtemplate(articles[articlesNames]));
+    var articleName=req.params.articleName;
+    res.send(createtemplate(articles[articlesName]));
 });
 
 
