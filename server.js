@@ -79,11 +79,11 @@ app.get('/:articleName',function(req,res)
     res.send(createtemplate(articles[articleName]));
 });
 var counter=0;
-app.get('/counter',function(req,res)
+/*app.get('/counter',function(req,res)
 {
     counter=counter+1;
     res.send(counter.toString());
-});
+});*/
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
 
