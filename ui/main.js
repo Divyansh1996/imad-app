@@ -46,7 +46,7 @@ b2.onclick=function()
                 var response1=JSON.parse(response);
                 for(var i=0;i<response1.length;i++)
                 {
-                list1.innerHTML='<li>'+response1[i]+'</li>';
+                list1.innerHTML+='<li>'+response1[i]+'</li>';
                 }                
             }
             
