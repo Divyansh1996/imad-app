@@ -40,11 +40,14 @@ b2.onclick=function()
         {
             if(er.status==200)
             {
+                var list=[];
                 var list1=document.getElementById('namelist');
                 var response=er.responseText;
                 var response1=JSON.parse(response);
-                list1.innerHTML='<li>'+response1+'</li>';
-                                 
+                for(var i=0;i<response1.length;i++)
+                {
+                list1.innerHTML='<li>'+response1[i]+'</li>';
+                }                
             }
             
         }
