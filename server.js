@@ -18,19 +18,7 @@ var articleOne={
         <p>n alloy contains zinc, copper and tin in the ratio 2:3:1 and another contains copper, tin and lead in the ratio 5:4:3. If equal weights of both alloys are melted together to form a third alloy, then the weight of lead per kg in new alloy will be:</p>
         <p>n alloy contains zinc, copper and tin in the ratio 2:3:1 and another contains copper, tin and lead in the ratio 5:4:3. If equal weights of both alloys are melted together to form a third alloy, then the weight of lead per kg in new alloy will be:</p>`
 };
-var pool=new Pool(config);
-app.get('/test-db',function(req,res){
-   pool.query("SELECT * FROM test",function(err,result){
-       if(err)
-       {
-           res.status(500).send(err.toString());
-       }
-       else
-       {
-           res.send(JSON.stringify(result.row));
-       }
-   }); 
-});
+
 function createtemplate(data){
     var title=data.title;
     var heading=data.heading;
@@ -103,7 +91,19 @@ app.get('/ui/main.js',function(req,res)
 {
  res.sendFile(path.join(__dirname,'ui','main.js'));   
 });
-
+var pool=new Pool(config);
+app.get('/test-db',function(req,res){
+   pool.query("SELECT * FROM test",function(err,result){
+       if(err)
+       {
+           res.status(500).send(err.toString());
+       }
+       else
+       {
+           res.send(JSON.stringify(result.row));
+       }
+   }); 
+});
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
