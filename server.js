@@ -114,7 +114,7 @@ app.get('/ui/main.js',function(req,res)
 {
  res.sendFile(path.join(__dirname,'ui','main.js'));   
 });
-var pool=new Pool(config);
+
 app.get('/test-db',function(req,res){
    pool.query("select * from test",function(err,result){
        if(err)
