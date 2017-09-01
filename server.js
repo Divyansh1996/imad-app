@@ -96,7 +96,7 @@ app.get('/ui/main.js',function(req,res)
 var pool=new Pool(config);
 app.get('/articles/:articleName',function(req,res){
     
-    pool.query("select * from article where title='" + req.params.articleName + "'",function(req,res){
+    pool.query("select * from article where title='" + req.params.articleName + "'" , function(req,res){
         
         if(err)
         {
