@@ -7,8 +7,16 @@ var config={
     database:'divyanshagrawal96',
     host:'db.imad.hasura-app.io',
     port:'5432',
-    password:'db-divyanshagrawal96-76536'
+    password:process.env.DB_PASSWORD
     
+};
+
+var articleOne={
+    title:'Article Kanha',
+    heading:'Thts me',
+    body:` <p>this is my first article.n alloy contains zinc, copper and tin in the ratio 2:3:1 and another contains copper, tin and lead in the ratio 5:4:3. If equal weights of both alloys are melted together to form a third alloy, then the weight of lead per kg in new alloy will be: </p>
+        <p>n alloy contains zinc, copper and tin in the ratio 2:3:1 and another contains copper, tin and lead in the ratio 5:4:3. If equal weights of both alloys are melted together to form a third alloy, then the weight of lead per kg in new alloy will be:</p>
+        <p>n alloy contains zinc, copper and tin in the ratio 2:3:1 and another contains copper, tin and lead in the ratio 5:4:3. If equal weights of both alloys are melted together to form a third alloy, then the weight of lead per kg in new alloy will be:</p>`
 };
 var pool=new Pool(config);
 app.get('/test-db',function(req,res){
@@ -23,13 +31,6 @@ app.get('/test-db',function(req,res){
        }
    }); 
 });
-var articleOne={
-    title:'Article Kanha',
-    heading:'Thts me',
-    body:` <p>this is my first article.n alloy contains zinc, copper and tin in the ratio 2:3:1 and another contains copper, tin and lead in the ratio 5:4:3. If equal weights of both alloys are melted together to form a third alloy, then the weight of lead per kg in new alloy will be: </p>
-        <p>n alloy contains zinc, copper and tin in the ratio 2:3:1 and another contains copper, tin and lead in the ratio 5:4:3. If equal weights of both alloys are melted together to form a third alloy, then the weight of lead per kg in new alloy will be:</p>
-        <p>n alloy contains zinc, copper and tin in the ratio 2:3:1 and another contains copper, tin and lead in the ratio 5:4:3. If equal weights of both alloys are melted together to form a third alloy, then the weight of lead per kg in new alloy will be:</p>`
-};
 function createtemplate(data){
     var title=data.title;
     var heading=data.heading;
