@@ -23,6 +23,7 @@ function createtemplate(data){
     var title=data.title;
     var heading=data.heading;
     var body=data.content;
+    var date=data.date;
 var htmltemplate=
 `<html>
     <head>
@@ -34,6 +35,7 @@ var htmltemplate=
         </h1>
         <hr/>
           ${body}
+          ${date}
     </body>
 </html>`;
 return htmltemplate;
