@@ -3,7 +3,7 @@ var morgan = require('morgan');
 var path = require('path');
 var Pool=require('pg').Pool;
 var crypto=require('crypto');
-var bodyParser=require('body-parser');
+
 var config={
     user:'divyanshagrawal96',
     database:'divyanshagrawal96',
@@ -12,7 +12,7 @@ var config={
     password:process.env.DB_PASSWORD
     
 };
-app.use(bodyParser.json());
+
 var articleOne={
     title:'Article Kanha',
     heading:'Thts me',
