@@ -3,7 +3,7 @@ var morgan = require('morgan');
 var path = require('path');
 var Pool=require('pg').Pool;
 var crypto=require('crypto');
-
+var bodyParser=require('body-parser');
 var config={
     user:'divyanshagrawal96',
     database:'divyanshagrawal96',
@@ -12,7 +12,7 @@ var config={
     password:process.env.DB_PASSWORD
     
 };
-
+app.use(bodyParser.json());
 var articleOne={
     title:'Article Kanha',
     heading:'Thts me',
@@ -143,7 +143,22 @@ app.get('/:articleName',function(req,res)
     var articleName=req.params.articleName;
     res.send(createtemplate(articles[articleName]));
 });
-
+app.post('/create-user',function(req,res){
+    var username=req.body.username;
+    var password=req.body.password;
+    var salt=crypto.randomBytes(512).toString('hex');
+    var dbString=hash(password,salt);
+    pool.query('INSERT INTO "user" (username,password) values($1,$2)',[username,dbString],function (err,res){
+        if(err)
+        {
+            res.status(500).send(err.toString());
+        }
+        else
+        {
+            res.send('User Login Successful'+username);
+        }
+    });
+});
 
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
