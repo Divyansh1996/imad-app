@@ -144,6 +144,7 @@ app.get('/:articleName',function(req,res)
     res.send(createtemplate(articles[articleName]));
 });
 app.post('/create-user',function(req,res){
+    res.send('nmdsn');
     var username=req.body.username;
     var password=req.body.password;
     var salt=crypto.randomBytes(512).toString('hex');
