@@ -1,5 +1,4 @@
 console.log('Loaded!');
-var we=document.getElementById('naruto');
 var submit=document.getElementById('submit-btn');
 submit.onClick=function()
 {
