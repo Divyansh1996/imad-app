@@ -122,7 +122,7 @@ app.get('/articles/:articleName',function(req,res){
     
 });
 
-app.get('/test-db1/:input',function(req,res){
+app.get('/test-db2/:input',function(req,res){
    var hasedString=hash(req.params.input,'this-is');
     res.send(hasedString);
 });
@@ -131,7 +131,7 @@ app.get('/test-db1/:input',function(req,res){
 function hash(input,salt)
 {
     var hased=crypto.pbkdf2Sync(input,salt,10000,512,'sha512');
-    return hased.toString('hex');
+    return ["pbkdf2","10000",salt,hased.toString('hex')].join('$');
 }
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
