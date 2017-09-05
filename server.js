@@ -75,6 +75,11 @@ app.use(bodyParser.json());
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
+function hash(input,salt)
+{
+    var hased=crypto.pbkdf2Sync(input,salt,10000,512,'sha512');
+    return ["pbkdf2","10000",salt,hased.toString('hex')].join('$');
+}
 app.post('/create-user',function(req,res){
     
     var username=req.body.username;
@@ -144,11 +149,7 @@ app.get('/test-db/:input',function(req,res){
 });
 
 
-function hash(input,salt)
-{
-    var hased=crypto.pbkdf2Sync(input,salt,10000,512,'sha512');
-    return ["pbkdf2","10000",salt,hased.toString('hex')].join('$');
-}
+
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
