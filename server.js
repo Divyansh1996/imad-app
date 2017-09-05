@@ -75,7 +75,23 @@ app.use(morgan('combined'));
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-
+app.get('/create-user',function(req,res){
+    res.send('nmdsn');
+    /*var username=req.body.username;
+    var password=req.body.password;
+    var salt=crypto.randomBytes(512).toString('hex');
+    var dbString=hash(password,salt);
+    pool.query('INSERT INTO "user" (username,password) values($1,$2)',[username,dbString],function (err,res){
+        if(err)
+        {
+            res.status(500).send(err.toString());
+        }
+        else
+        {
+            res.send('User Login Successful'+username);
+        }
+    });*/
+});
 var counter=0;
 app.get('/counter',function(req,res)
 {
@@ -143,23 +159,7 @@ app.get('/:articleName',function(req,res)
     var articleName=req.params.articleName;
     res.send(createtemplate(articles[articleName]));
 });
-app.get('/create-user',function(req,res){
-    res.send('nmdsn');
-    /*var username=req.body.username;
-    var password=req.body.password;
-    var salt=crypto.randomBytes(512).toString('hex');
-    var dbString=hash(password,salt);
-    pool.query('INSERT INTO "user" (username,password) values($1,$2)',[username,dbString],function (err,res){
-        if(err)
-        {
-            res.status(500).send(err.toString());
-        }
-        else
-        {
-            res.send('User Login Successful'+username);
-        }
-    });*/
-});
+
 
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
