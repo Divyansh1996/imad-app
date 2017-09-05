@@ -12,7 +12,7 @@ var config={
     password:process.env.DB_PASSWORD
     
 };
-app.use(bodyParser.json());
+
 var articleOne={
     title:'Article Kanha',
     heading:'Thts me',
