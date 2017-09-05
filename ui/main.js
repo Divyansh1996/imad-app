@@ -12,7 +12,10 @@ submit.onClick=function()
           {
              alert('Logged in');
           }
-          
+          else
+          {
+              alert('err');
+          }
           
       }
     };
