@@ -130,7 +130,7 @@ app.get('/test-db1/:input',function(req,res){
 
 function hash(input,salt)
 {
-    var hased=crypto.pbkd2Sync(input,salt,10000,512,'sha512');
+    var hased=crypto.pbkdf2Sync(input,salt,10000,512,'sha512');
     return hased.toString('hex');
 }
 app.get('/ui/madi.png', function (req, res) {
