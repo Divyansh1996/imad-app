@@ -81,8 +81,8 @@ function hash(input,salt)
     return hased.toString('hex');
 }
 app.get('hash/:input',function(req,res){
-    var hasedString=hash(req.params.input,'this-is');
-    res.send(hasedString);
+    //var hasedString=hash(req.params.input,'this-is');
+    res.send('hasedString');
 });
 var counter=0;
 app.get('/counter',function(req,res)
