@@ -100,7 +100,7 @@ app.post('/create-user',function(req,res){
 app.post('/login',function(req,res){
     var username=req.body.username;
     var password=req.body.password;
-    poo.query('select * from "user" where username=$',[username],function(err,result){
+    pool.query('select * from "user" where username=$',[username],function(err,result){
         if(err)
         {
             res.status(500).send(err.toString());
