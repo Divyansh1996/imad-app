@@ -75,7 +75,7 @@ app.use(bodyParser.json());
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-app.get('/create-user',function(req,res){
+app.post('/create-user',function(req,res){
     
     var username=req.body.username;
     var password=req.body.password;
