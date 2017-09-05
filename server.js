@@ -135,7 +135,7 @@ app.get('/test-db',function(req,res){
    }); 
 });
 
-app.get('hash11/:input',function(req,res){
+app.get('test/:input',function(req,res){
     var hasedString=hash(req.params.input,'this-is');
     res.send('hasedString');
 });
