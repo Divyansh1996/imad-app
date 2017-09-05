@@ -145,7 +145,7 @@ app.get('/:articleName',function(req,res)
 });
 app.post('/create-user',function(req,res){
     res.send('nmdsn');
-    var username=req.body.username;
+    /*var username=req.body.username;
     var password=req.body.password;
     var salt=crypto.randomBytes(512).toString('hex');
     var dbString=hash(password,salt);
@@ -158,7 +158,7 @@ app.post('/create-user',function(req,res){
         {
             res.send('User Login Successful'+username);
         }
-    });
+    });*/
 });
 
 // Do not change port, otherwise your app won't run on IMAD servers
