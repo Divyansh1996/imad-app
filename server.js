@@ -75,6 +75,15 @@ app.use(morgan('combined'));
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
+function hash(input,salt)
+{
+    var hased=crypto.pbkd2Sync(input,salt,10000,512,'sha512');
+    return hased.toString('hex');
+}
+app.get('hash/:input',function(req,res){
+    var hasedString=hash(req.params.input,'this-is');
+    res.send(hasedString);
+});
 var counter=0;
 app.get('/counter',function(req,res)
 {
@@ -88,15 +97,7 @@ app.get('/submit',function(req,res)
   names.push(name);
  res.send(JSON.stringify(names));
 });
-function hash(input,salt)
-{
-    var hased=crypto.pbkd2Sync(input,salt,10000,512,'sha512');
-    return hased.toString('hex');
-}
-app.get('hash/:input',function(req,res){
-    var hasedString=hash(req.params.input,'this-is');
-    res.send(hasedString);
-});
+
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
