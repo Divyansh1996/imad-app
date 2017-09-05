@@ -4,6 +4,8 @@ var path = require('path');
 var Pool=require('pg').Pool;
 var crypto=require('crypto');
 var bodyParser=require('body-parser');
+var session=require('express-session');
+
 var config={
     user:'divyanshagrawal96',
     database:'divyanshagrawal96',
@@ -72,6 +74,10 @@ var articles={
 var app = express();  
 app.use(morgan('combined'));
 app.use(bodyParser.json());
+app.use(session({
+    secret:'Some Random Secret Values',
+    cookie:{maxAge:1000*60*60*24*30}
+}));
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
@@ -118,6 +124,7 @@ app.post('/login',function(req,res){
                 var hashpassword=hash(password,salt);
                 if(hashpassword==dbString)
                 {
+                    req.session.auth={userId:result.rows[0].id};
                     res.send('creditentials correct');
                 }
                 else
@@ -127,6 +134,16 @@ app.post('/login',function(req,res){
             }
         }
     });
+});
+app.get('/check-login',function(req,res){
+    if(req.session && req.session.auth && req.session.auth.userId)
+    {
+        res.send('You are Logged in'+req.session.auth.userId.toString());
+    }
+    else
+    {
+        res.send("You Are Not Logged in");
+    }
 });
 var counter=0;
 app.get('/counter',function(req,res)
