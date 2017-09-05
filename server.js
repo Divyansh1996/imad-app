@@ -124,7 +124,7 @@ app.get('/articles/:articleName',function(req,res){
 
 app.get('/test-db1/:input',function(req,res){
    var hasedString=hash(req.params.input,'this-is');
-    res.send('hasedString');
+    res.send(hasedString);
 });
 
 
