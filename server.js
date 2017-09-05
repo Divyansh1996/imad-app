@@ -123,16 +123,16 @@ app.get('/articles/:articleName',function(req,res){
 });
 
 app.get('/test-db1/:input',function(req,res){
-   //var hasedString=hash(req.params.input,'this-is');
+   var hasedString=hash(req.params.input,'this-is');
     res.send('hasedString');
 });
 
 
-/*function hash(input,salt)
+function hash(input,salt)
 {
     var hased=crypto.pbkd2Sync(input,salt,10000,512,'sha512');
     return hased.toString('hex');
-}*/
+}
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
