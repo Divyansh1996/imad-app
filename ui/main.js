@@ -23,7 +23,7 @@ submit.onClick=function()
     request.send(JSON.stringify({username:username,password:password}));
     
 };
-var move=0;
+/*var move=0;
 function moveRight()
 {
     move=move+10;
@@ -52,7 +52,7 @@ v1.onclick=function()
     re.send(null);
     
 };
-b2.onclick=function()
+/*b2.onclick=function()
 {
     var name=document.getElementById("i1");
     var name1=name.value;
@@ -78,7 +78,7 @@ b2.onclick=function()
     };
     er.open('GET','http://divyanshagrawal96.imad.hasura-app.io/submit?name='+name1,true);
     er.send(null);
-    
+    */
     /*var names=['name1','name2','name3'];
     var list="";
     for(var i=0;i<names.length;i++)
@@ -88,4 +88,4 @@ b2.onclick=function()
     var ul=document.getElementById('namelist');
     namelist.innerHTML=list;*/
     
-};
+//};
