@@ -122,7 +122,7 @@ app.get('/articles/:articleName',function(req,res){
     
 });
 
-app.get('/test-db',function(req,res){
+app.get('/test-db1',function(req,res){
    //var hasedString=hash(req.params.input,'this-is');
     res.send('hasedString');
 });
