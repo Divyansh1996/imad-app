@@ -80,7 +80,7 @@ function hash(input,salt)
     var hased=crypto.pbkd2Sync(input,salt,10000,512,'sha512');
     return hased.toString('hex');
 }
-app.get('hash/:input',function(req,res){
+app.get('hash11/:input',function(req,res){
     //var hasedString=hash(req.params.input,'this-is');
     res.send('hasedString');
 });
