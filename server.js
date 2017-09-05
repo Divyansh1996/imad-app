@@ -76,8 +76,8 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 app.get('/create-user',function(req,res){
-    res.send('nmdsn');
-    /*var username=req.body.username;
+    
+    var username=req.body.username;
     var password=req.body.password;
     var salt=crypto.randomBytes(512).toString('hex');
     var dbString=hash(password,salt);
@@ -90,7 +90,7 @@ app.get('/create-user',function(req,res){
         {
             res.send('User Login Successful'+username);
         }
-    });*/
+    });
 });
 var counter=0;
 app.get('/counter',function(req,res)
